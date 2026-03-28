@@ -1,0 +1,29 @@
+What are Stored Procedures?
+Stored procedure is a prepared SQL code that can be saved, so the code can be reused over and over again.
+It is possible to pass parameters to a stored procedure to act based on the passed(given) parameter value(s).
+
+Syntax for creating Stored Procedure (MySQL)
+DELIMITER &&
+CREATE PROCEDURE procedure_name (parameter list)
+BEGIN
+SQL Codes;
+END
+&&
+DELIMITER ;
+
+--------------------------------------------------
+select * from employee;
+
+create procedure EmployeeInsert(eid IN int,des IN varchar2,sal IN int,did IN int)
+as
+begin
+insert into employee values(eid,des,sal,did); (dbms should not stop here because of semi column)
+end; //(from create to end it is a creation process and it is multiple line all this line should execute at once ) that why we he / after the end;//
+/
+
+//With the help of store procedure we can simply execute insert query.
+exec EmployeeInsert(301,'Manager',150000,5);
+
+Notes * 
+--------
+A stored procedure contains multiple statements separated by semicolons (;). To compile the whole stored procedure as a single compound statement, you need to temporarily change the delimiter from the semicolon (;) to another.

@@ -1,0 +1,32 @@
+In SQL, a sequence is used to generate a series of unique integer values. Sequences are often used to generate primary key values for tables, ensuring that each row in the table has a unique value.
+
+//Note: Sequence is supported only by Oracle.
+
+--Syntax for Creating Sequence
+
+CREATE SEQUENCE sequence_name
+START WITH start_value
+INCREMENT BY increment_value
+MAXVALUE max_value
+NOCYCLE;
+
+//Example
+CREATE SEQUENCE item_seq 
+START WITH 1 
+INCREMENT BY 1 
+MAXVALUE 100000 
+NOCYCLE;
+
+//START WITH: Specifies the starting value of the sequence.
+//INCREMENT BY: Specifies the interval between sequence numbers.
+//MAXVALUE: Sets the maximum value for the sequence.
+//NOCYCLE: Ensures the sequence does not restart after reaching the maximum value.
+
+-------------Using a Sequence to Insert Data
+To insert the next available value from a sequence into a table (e.g., a table named stationary), use the NEXTVAL keyword----
+//INSERT INTO stationary (item_id, item_name) VALUES (item_seq.NEXTVAL, 'Pen');
+
+//Checking Sequence Values
+Current Value: SELECT item_seq.CURRVAL FROM dual;
+
+Next Value: SELECT item_seq.NEXTVAL FROM dual;

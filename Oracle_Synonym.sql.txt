@@ -1,0 +1,18 @@
+//Suppose if we have table name like this so we can use synonym to make it shorter
+
+select * from BankActiveUserAccountDetails;
+
+//Using SYNONYM
+
+Create SYNONYM BA for BankActiveUserAccountDetails;
+
+//With this synonym name we can use the same table for every task.
+select * from BA;
+
+//Notes--
+Definition -
+In a database, a synonym is an alias or alternative name for an existing database object, such as a table, view, sequence, or stored procedure. Synonyms provide a way to simplify object references, enhance security, and manage changes to object names or schemas without impacting applications.
+
+Syntax To create a synonym, use the following command: CREATE SYNONYM synonym_name FOR object_name;
+
+Examples Basic Example: CREATE SYNONYM emp FOR employees; 
