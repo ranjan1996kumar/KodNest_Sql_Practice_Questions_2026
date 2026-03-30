@@ -1,0 +1,7 @@
+//An index in SQL is a database object that provides a fast and efficient way to locate rows in a table. Indexes can significantly improve query performance by allowing the database to quickly locate rows matching specified conditions//
+
+select * from employee;
+
+create index Emp_fetch on Employee(Emp_id); //creating index
+
+select * from employee where emp_id=235; // fetching details efficiently
